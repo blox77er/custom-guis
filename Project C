@@ -1,0 +1,169 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+-- Instances: 10 | Scripts: 2 | Modules: 0 | Tags: 0
+local LMG2L = {};
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame
+LMG2L["Frame_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Frame_2"]["BorderSizePixel"] = 0;
+LMG2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22);
+LMG2L["Frame_2"]["Size"] = UDim2.new(0, 446, 0, 380);
+LMG2L["Frame_2"]["Position"] = UDim2.new(0, 158, 0, 46);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear
+LMG2L["Clear_3"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["Clear_3"]["TextWrapped"] = true;
+LMG2L["Clear_3"]["BorderSizePixel"] = 2;
+LMG2L["Clear_3"]["TextScaled"] = true;
+LMG2L["Clear_3"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+LMG2L["Clear_3"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Clear_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal);
+LMG2L["Clear_3"]["Size"] = UDim2.new(0, 90, 0, 50);
+LMG2L["Clear_3"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Clear_3"]["Text"] = [[Clear]];
+LMG2L["Clear_3"]["Name"] = [[Clear]];
+LMG2L["Clear_3"]["Position"] = UDim2.new(0, 126, 0, 116);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear.LocalScript
+LMG2L["LocalScript_4"] = Instance.new("LocalScript", LMG2L["Clear_3"]);
+
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Project C
+LMG2L["Project C_5"] = Instance.new("TextLabel", LMG2L["Frame_2"]);
+LMG2L["Project C_5"]["TextWrapped"] = true;
+LMG2L["Project C_5"]["TextStrokeTransparency"] = 0;
+LMG2L["Project C_5"]["BorderSizePixel"] = 0;
+LMG2L["Project C_5"]["TextScaled"] = true;
+LMG2L["Project C_5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Project C_5"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["Project C_5"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+LMG2L["Project C_5"]["BackgroundTransparency"] = 1;
+LMG2L["Project C_5"]["RichText"] = true;
+LMG2L["Project C_5"]["Size"] = UDim2.new(0, 246, 0, 44);
+LMG2L["Project C_5"]["Text"] = [[Project C]];
+LMG2L["Project C_5"]["Name"] = [[Project C]];
+LMG2L["Project C_5"]["Position"] = UDim2.new(0, 8, 0, 12);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.c00lkidd image
+LMG2L["c00lkidd image_6"] = Instance.new("ImageLabel", LMG2L["Frame_2"]);
+LMG2L["c00lkidd image_6"]["Interactable"] = false;
+LMG2L["c00lkidd image_6"]["BorderSizePixel"] = 0;
+LMG2L["c00lkidd image_6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["c00lkidd image_6"]["ResampleMode"] = Enum.ResamplerMode.Pixelated;
+LMG2L["c00lkidd image_6"]["ImageTransparency"] = 0.5;
+-- LMG2L["c00lkidd image_6"]["ImageContent"] = ;
+LMG2L["c00lkidd image_6"]["Image"] = [[rbxassetid://103284758962969]];
+LMG2L["c00lkidd image_6"]["Size"] = UDim2.new(0, 252, 0, 294);
+LMG2L["c00lkidd image_6"]["BackgroundTransparency"] = 10;
+LMG2L["c00lkidd image_6"]["LayoutOrder"] = 3;
+LMG2L["c00lkidd image_6"]["Name"] = [[c00lkidd image]];
+LMG2L["c00lkidd image_6"]["Position"] = UDim2.new(0, 216, 0, 60);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Scriptbox
+LMG2L["Scriptbox_7"] = Instance.new("TextBox", LMG2L["Frame_2"]);
+LMG2L["Scriptbox_7"]["Name"] = [[Scriptbox]];
+LMG2L["Scriptbox_7"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Scriptbox_7"]["PlaceholderColor3"] = Color3.fromRGB(254, 0, 0);
+LMG2L["Scriptbox_7"]["BorderSizePixel"] = 3;
+LMG2L["Scriptbox_7"]["TextWrapped"] = true;
+LMG2L["Scriptbox_7"]["TextSize"] = 13;
+LMG2L["Scriptbox_7"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
+LMG2L["Scriptbox_7"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["Scriptbox_7"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Scriptbox_7"]["RichText"] = true;
+LMG2L["Scriptbox_7"]["MultiLine"] = true;
+LMG2L["Scriptbox_7"]["ClearTextOnFocus"] = false;
+LMG2L["Scriptbox_7"]["ClipsDescendants"] = true;
+LMG2L["Scriptbox_7"]["PlaceholderText"] = [[w0ws so c00l!]];
+LMG2L["Scriptbox_7"]["Size"] = UDim2.new(0, 242, 0, 168);
+LMG2L["Scriptbox_7"]["Position"] = UDim2.new(0, 18, 0, 174);
+LMG2L["Scriptbox_7"]["BorderColor3"] = Color3.fromRGB(255, 17, 17);
+LMG2L["Scriptbox_7"]["Text"] = [[]];
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton
+LMG2L["ExecuteButton_8"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["ExecuteButton_8"]["TextWrapped"] = true;
+LMG2L["ExecuteButton_8"]["RichText"] = true;
+LMG2L["ExecuteButton_8"]["BorderSizePixel"] = 2;
+LMG2L["ExecuteButton_8"]["TextScaled"] = true;
+LMG2L["ExecuteButton_8"]["TextColor3"] = Color3.fromRGB(255, 8, 8);
+LMG2L["ExecuteButton_8"]["BackgroundColor3"] = Color3.fromRGB(18, 18, 18);
+LMG2L["ExecuteButton_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["ExecuteButton_8"]["Size"] = UDim2.new(0, 90, 0, 46);
+LMG2L["ExecuteButton_8"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ExecuteButton_8"]["Text"] = [[Execute]];
+LMG2L["ExecuteButton_8"]["Name"] = [[ExecuteButton]];
+LMG2L["ExecuteButton_8"]["Position"] = UDim2.new(0, 22, 0, 120);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton.LocalScript
+LMG2L["LocalScript_9"] = Instance.new("LocalScript", LMG2L["ExecuteButton_8"]);
+
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.UIDragDetector
+LMG2L["UIDragDetector_a"] = Instance.new("UIDragDetector", LMG2L["Frame_2"]);
+
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear.LocalScript
+local function C_4()
+	local script = LMG2L["LocalScript_4"];
+	local button = script.Parent	
+	local frame = button.Parent	
+	local scriptbox = frame:WaitForChild("Scriptbox")	
+	
+	button.MouseButton1Click:Connect(function()	
+	    scriptbox.Text = ""	
+	    scriptbox.PlaceholderText = "Cleared!"	
+	    	
+	    task.wait(1)	
+	    scriptbox.PlaceholderText = "w0ws so c00l!" -- Change this to your default placeholder	
+	end)	
+end;
+task.spawn(C_4);
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton.LocalScript
+local function C_9()
+	local script = LMG2L["LocalScript_9"];
+	local button = script.Parent	
+	local frame = button.Parent	
+	local scriptbox = frame:WaitForChild("Scriptbox")	
+	
+	button.MouseButton1Click:Connect(function()	
+	    local code = scriptbox.Text	
+	    	
+	    if code ~= "" then	
+	        local success, err = pcall(function()	
+	            -- Note: This requires the executor environment to support loadstring	
+	            loadstring(code)()	
+	        end)	
+	
+	        if not success then	
+	            warn("Execution Error: " .. tostring(err))	
+	        end	
+	    end	
+	end)	
+end;
+task.spawn(C_9);
+
+return LMG2L["ScreenGui_1"], require;
