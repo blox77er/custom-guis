@@ -9,7 +9,7 @@
 designed using localmaze gui creator
 ]=]
 
--- Instances: 10 | Scripts: 2 | Modules: 0 | Tags: 0
+-- Instances: 14 | Scripts: 3 | Modules: 0 | Tags: 0
 local LMG2L = {};
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui
@@ -19,10 +19,11 @@ LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame
 LMG2L["Frame_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
-LMG2L["Frame_2"]["BorderSizePixel"] = 0;
-LMG2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(22, 22, 22);
+LMG2L["Frame_2"]["BorderSizePixel"] = 4;
+LMG2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["Frame_2"]["Size"] = UDim2.new(0, 446, 0, 380);
 LMG2L["Frame_2"]["Position"] = UDim2.new(0, 158, 0, 46);
+LMG2L["Frame_2"]["BorderColor3"] = Color3.fromRGB(232, 33, 66);
 
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear
@@ -33,11 +34,11 @@ LMG2L["Clear_3"]["TextScaled"] = true;
 LMG2L["Clear_3"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
 LMG2L["Clear_3"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
 LMG2L["Clear_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Heavy, Enum.FontStyle.Normal);
-LMG2L["Clear_3"]["Size"] = UDim2.new(0, 90, 0, 50);
+LMG2L["Clear_3"]["Size"] = UDim2.new(0, 90, 0, 46);
 LMG2L["Clear_3"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["Clear_3"]["Text"] = [[Clear]];
 LMG2L["Clear_3"]["Name"] = [[Clear]];
-LMG2L["Clear_3"]["Position"] = UDim2.new(0, 126, 0, 116);
+LMG2L["Clear_3"]["Position"] = UDim2.new(0, 126, 0, 120);
 
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear.LocalScript
@@ -56,7 +57,7 @@ LMG2L["Project C_5"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSS
 LMG2L["Project C_5"]["TextColor3"] = Color3.fromRGB(255, 0, 0);
 LMG2L["Project C_5"]["BackgroundTransparency"] = 1;
 LMG2L["Project C_5"]["RichText"] = true;
-LMG2L["Project C_5"]["Size"] = UDim2.new(0, 246, 0, 44);
+LMG2L["Project C_5"]["Size"] = UDim2.new(0, 280, 0, 68);
 LMG2L["Project C_5"]["Text"] = [[Project C]];
 LMG2L["Project C_5"]["Name"] = [[Project C]];
 LMG2L["Project C_5"]["Position"] = UDim2.new(0, 8, 0, 12);
@@ -100,30 +101,59 @@ LMG2L["Scriptbox_7"]["BorderColor3"] = Color3.fromRGB(255, 17, 17);
 LMG2L["Scriptbox_7"]["Text"] = [[]];
 
 
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.infinite yield
+LMG2L["infinite yield_8"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["infinite yield_8"]["TextWrapped"] = true;
+LMG2L["infinite yield_8"]["BorderSizePixel"] = 3;
+LMG2L["infinite yield_8"]["TextScaled"] = true;
+LMG2L["infinite yield_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["infinite yield_8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["infinite yield_8"]["Size"] = UDim2.new(0, 160, 0, 42);
+LMG2L["infinite yield_8"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["infinite yield_8"]["Text"] = [[Inf Yield]];
+LMG2L["infinite yield_8"]["Name"] = [[infinite yield]];
+LMG2L["infinite yield_8"]["Position"] = UDim2.new(0, 274, 0, 320);
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.infinite yield.inf yield
+LMG2L["inf yield_9"] = Instance.new("LocalScript", LMG2L["infinite yield_8"]);
+LMG2L["inf yield_9"]["Name"] = [[inf yield]];
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.UIGradient
+LMG2L["UIGradient_a"] = Instance.new("UIGradient", LMG2L["Frame_2"]);
+LMG2L["UIGradient_a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(19, 19, 19)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(184, 0, 0))};
+
+
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton
-LMG2L["ExecuteButton_8"] = Instance.new("TextButton", LMG2L["Frame_2"]);
-LMG2L["ExecuteButton_8"]["TextWrapped"] = true;
-LMG2L["ExecuteButton_8"]["RichText"] = true;
-LMG2L["ExecuteButton_8"]["BorderSizePixel"] = 2;
-LMG2L["ExecuteButton_8"]["TextScaled"] = true;
-LMG2L["ExecuteButton_8"]["TextColor3"] = Color3.fromRGB(255, 8, 8);
-LMG2L["ExecuteButton_8"]["BackgroundColor3"] = Color3.fromRGB(18, 18, 18);
-LMG2L["ExecuteButton_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-LMG2L["ExecuteButton_8"]["Size"] = UDim2.new(0, 90, 0, 46);
-LMG2L["ExecuteButton_8"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
-LMG2L["ExecuteButton_8"]["Text"] = [[Execute]];
-LMG2L["ExecuteButton_8"]["Name"] = [[ExecuteButton]];
-LMG2L["ExecuteButton_8"]["Position"] = UDim2.new(0, 22, 0, 120);
+LMG2L["ExecuteButton_b"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["ExecuteButton_b"]["TextWrapped"] = true;
+LMG2L["ExecuteButton_b"]["RichText"] = true;
+LMG2L["ExecuteButton_b"]["BorderSizePixel"] = 2;
+LMG2L["ExecuteButton_b"]["TextScaled"] = true;
+LMG2L["ExecuteButton_b"]["TextColor3"] = Color3.fromRGB(255, 8, 8);
+LMG2L["ExecuteButton_b"]["BackgroundColor3"] = Color3.fromRGB(18, 18 , 18);
+LMG2L["ExecuteButton_b"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+LMG2L["ExecuteButton_b"]["Size"] = UDim2.new(0, 90, 0, 46);
+LMG2L["ExecuteButton_b"]["BorderColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["ExecuteButton_b"]["Text"] = [[Execute]];
+LMG2L["ExecuteButton_b"]["Name"] = [[ExecuteButton]];
+LMG2L["ExecuteButton_b"]["Position"] = UDim2.new(0, 22, 0, 120);
 
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton.LocalScript
-LMG2L["LocalScript_9"] = Instance.new("LocalScript", LMG2L["ExecuteButton_8"]);
+LMG2L["LocalScript_c"] = Instance.new("LocalScript", LMG2L["ExecuteButton_b"]);
 
 
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.UIDragDetector
-LMG2L["UIDragDetector_a"] = Instance.new("UIDragDetector", LMG2L["Frame_2"]);
+LMG2L["UIDragDetector_d"] = Instance.new("UIDragDetector", LMG2L["Frame_2"]);
 
+
+
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.UIAspectRatioConstraint
+LMG2L["UIAspectRatioConstraint_e"] = Instance.new("UIAspectRatioConstraint", LMG2L["Frame_2"]);
+LMG2L["UIAspectRatioConstraint_e"]["AspectRatio"] = 1.17368;
 
 
 -- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.Clear.LocalScript
@@ -142,9 +172,25 @@ local function C_4()
 	end)	
 end;
 task.spawn(C_4);
--- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton.LocalScript
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.infinite yield.inf yield
 local function C_9()
-	local script = LMG2L["LocalScript_9"];
+	local script = LMG2L["inf yield_9"];
+	local button = script.Parent	
+	
+	button.MouseButton1Click:Connect(function()	
+	    local success, err = pcall(function()	
+	        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()	
+	    end)	
+	
+	    if not success then	
+	        warn("Failed to load Infinite Yield: " .. tostring(err))	
+	    end	
+	end)	
+end;
+task.spawn(C_9);
+-- Players.blox77erkidd_ALT.PlayerGui.ScreenGui.Frame.ExecuteButton.LocalScript
+local function C_c()
+	local script = LMG2L["LocalScript_c"];
 	local button = script.Parent	
 	local frame = button.Parent	
 	local scriptbox = frame:WaitForChild("Scriptbox")	
@@ -164,6 +210,6 @@ local function C_9()
 	    end	
 	end)	
 end;
-task.spawn(C_9);
+task.spawn(C_c);
 
 return LMG2L["ScreenGui_1"], require;
