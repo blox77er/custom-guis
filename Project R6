@@ -1,0 +1,125 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+local LMG2L = {};
+
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+
+LMG2L["Frame_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Frame_2"]["BorderSizePixel"] = 2;
+LMG2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(237, 237, 237);
+LMG2L["Frame_2"]["Size"] = UDim2.new(0, 484, 0, 372);
+LMG2L["Frame_2"]["Position"] = UDim2.new(0, 142, 0, 134);
+LMG2L["Frame_2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+LMG2L["Clear_3"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["Clear_3"]["BorderSizePixel"] = 0;
+LMG2L["Clear_3"]["TextSize"] = 24;
+LMG2L["Clear_3"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Clear_3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Clear_3"]["FontFace"] = Font.new([[rbxasset://fonts/families/HighwayGothic.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+LMG2L["Clear_3"]["Size"] = UDim2.new(0, 96, 0, 48);
+LMG2L["Clear_3"]["Text"] = [[Clear]];
+LMG2L["Clear_3"]["Name"] = [[Clear]];
+LMG2L["Clear_3"]["Position"] = UDim2.new(0, 234, 0, 318);
+
+
+LMG2L["LocalScript_4"] = Instance.new("LocalScript", LMG2L["Clear_3"]);
+
+
+
+LMG2L["Scriptbox_5"] = Instance.new("TextBox", LMG2L["Frame_2"]);
+LMG2L["Scriptbox_5"]["Name"] = [[Scriptbox]];
+LMG2L["Scriptbox_5"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["Scriptbox_5"]["PlaceholderColor3"] = Color3.fromRGB(118, 118, 118);
+LMG2L["Scriptbox_5"]["BorderSizePixel"] = 2;
+LMG2L["Scriptbox_5"]["TextWrapped"] = true;
+LMG2L["Scriptbox_5"]["TextSize"] = 10;
+LMG2L["Scriptbox_5"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Scriptbox_5"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+LMG2L["Scriptbox_5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Scriptbox_5"]["RichText"] = true;
+LMG2L["Scriptbox_5"]["MultiLine"] = true;
+LMG2L["Scriptbox_5"]["ClearTextOnFocus"] = false;
+LMG2L["Scriptbox_5"]["PlaceholderText"] = [[project r6 by blox77er on discord.... | Project R6]];
+LMG2L["Scriptbox_5"]["Size"] = UDim2.new(0, 334, 0, 234);
+LMG2L["Scriptbox_5"]["Position"] = UDim2.new(0, 118, 0, 72);
+LMG2L["Scriptbox_5"]["Text"] = [[]];
+
+
+LMG2L["Execute_6"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["Execute_6"]["RichText"] = true;
+LMG2L["Execute_6"]["BorderSizePixel"] = 0;
+LMG2L["Execute_6"]["TextSize"] = 24;
+LMG2L["Execute_6"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Execute_6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Execute_6"]["FontFace"] = Font.new([[rbxasset://fonts/families/HighwayGothic.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+LMG2L["Execute_6"]["Size"] = UDim2.new(0, 96, 0, 46);
+LMG2L["Execute_6"]["Text"] = [[Execute]];
+LMG2L["Execute_6"]["Name"] = [[Execute]];
+LMG2L["Execute_6"]["Position"] = UDim2.new(0, 120, 0, 318);
+
+
+LMG2L["runcode_7"] = Instance.new("LocalScript", LMG2L["Execute_6"]);
+LMG2L["runcode_7"]["Name"] = [[runcode]];
+
+
+LMG2L["name_8"] = Instance.new("TextLabel", LMG2L["Frame_2"]);
+LMG2L["name_8"]["TextWrapped"] = true;
+LMG2L["name_8"]["BorderSizePixel"] = 2;
+LMG2L["name_8"]["TextSize"] = 30;
+LMG2L["name_8"]["BackgroundColor3"] = Color3.fromRGB(245, 245, 245);
+LMG2L["name_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+LMG2L["name_8"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["name_8"]["RichText"] = true;
+LMG2L["name_8"]["Size"] = UDim2.new(0, 294, 0, 46);
+LMG2L["name_8"]["BorderColor3"] = Color3.fromRGB(164, 164, 164);
+LMG2L["name_8"]["Text"] = [[Project R6]];
+LMG2L["name_8"]["Name"] = [[name]];
+LMG2L["name_8"]["Position"] = UDim2.new(0, 4, 0, 6);
+
+
+LMG2L["UIDragDetector_9"] = Instance.new("UIDragDetector", LMG2L["Frame_2"]);
+
+
+
+local function C_4()
+	local script = LMG2L["LocalScript_4"];
+	local box = script.Parent.Parent:WaitForChild("Scriptbox")	
+	
+	script.Parent.MouseButton1Click:Connect(function()	
+	    box.Text = ""	
+	end)	
+	
+end;
+task.spawn(C_4);
+local function C_7()
+	local script = LMG2L["runcode_7"];
+	local frame = script:FindFirstAncestor("Frame") -- Goes up until it finds the main container	
+	local textBox = frame:FindFirstChild("Scriptbox", true) -- Searches descendants for the box	
+	local executeBtn = script.Parent	
+	
+	executeBtn.MouseButton1Click:Connect(function()	
+	    if textBox and textBox.Text ~= "" then	
+	        -- This is the command that actually "runs" the text	
+	        loadstring(textBox.Text)() 	
+	    else	
+	        print("No code found in Scriptbox!")	
+	    end	
+	end)	
+	
+end;
+task.spawn(C_7);
+
+return LMG2L["ScreenGui_1"], require;
