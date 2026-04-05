@@ -1,0 +1,308 @@
+---------
+-- blox77er gui V2
+--------
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterGui = game:GetService("StarterGui")
+
+-- Click sound helper
+local function playClickSound(parent)
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://7593297942"
+	sound.Volume = 1
+	sound.Parent = parent
+	sound:Play()
+	sound.Ended:Connect(function()
+		sound:Destroy()
+	end)
+end
+
+-- Function to scan for all RemoteEvents and RemoteFunctions
+local function scanForBackdoors()
+	local potentialBackdoors = {}
+	for _, obj in pairs(ReplicatedStorage:GetChildren()) do
+		if obj:IsA("RemoteEvent") or obj:IsA("RemoteFunction") then
+			table.insert(potentialBackdoors, obj)
+		end
+	end
+	return potentialBackdoors
+end
+
+-- Function to send Roblox notification
+local function sendNotification(title, message, duration)
+	pcall(function()
+		StarterGui:SetCore("SendNotification", {
+			Title = title,
+			Text = message,
+			Duration = duration or 5
+		})
+	end)
+end
+
+-- Track body type toggle
+local isR15 = true
+
+local function loadMainGui()
+	local ScreenGui = Instance.new("ScreenGui")
+	ScreenGui.Name = "Blox77erV2"
+	ScreenGui.Parent = PlayerGui
+	ScreenGui.ResetOnSpawn = false
+
+	-- Main Frame
+	local MainFrame = Instance.new("Frame")
+	MainFrame.Size = UDim2.new(0, 500, 0, 350)
+	MainFrame.Position = UDim2.new(0.5, -250, 0.5, -175)
+	MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	MainFrame.BackgroundTransparency = 0.5
+	MainFrame.BorderColor3 = Color3.fromRGB(255, 0, 0)
+	MainFrame.BorderSizePixel = 2
+	MainFrame.Active = true
+	MainFrame.Draggable = true
+	MainFrame.Parent = ScreenGui
+
+	-- Profile picture
+	local ProfilePic = Instance.new("ImageLabel")
+	ProfilePic.Size = UDim2.new(0, 160, 0, 160)
+	ProfilePic.BackgroundTransparency = 1
+	ProfilePic.BorderSizePixel = 2
+	ProfilePic.BorderColor3 = Color3.fromRGB(255, 0, 0)
+	ProfilePic.Parent = MainFrame
+	ProfilePic.Rotation = 10
+	ProfilePic.ZIndex = 1
+
+	-- Title
+	local Title = Instance.new("TextLabel")
+	Title.Size = UDim2.new(1, 0, 0, 40)
+	Title.Position = UDim2.new(0, 0, 0, 0)
+	Title.BackgroundTransparency = 1
+	Title.Text = "join blox77er, fck roblox"
+	Title.Font = Enum.Font.GothamBlack
+	Title.TextSize = 22
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextWrapped = true
+	Title.Parent = MainFrame
+	Title.ZIndex = 2
+
+	-- Auto Username Fill Button
+	local AutoFillBtn = Instance.new("TextButton")
+	AutoFillBtn.Size = UDim2.new(0, 160, 0, 36)
+	AutoFillBtn.Position = UDim2.new(0, 10, 0, 260)
+	AutoFillBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+	AutoFillBtn.Text = "Auto Username Fill"
+	AutoFillBtn.Font = Enum.Font.GothamBold
+	AutoFillBtn.TextSize = 18
+	AutoFillBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	AutoFillBtn.Parent = MainFrame
+	AutoFillBtn.ZIndex = 3
+
+	-- TextBox for command/code
+	local UsernameBox = Instance.new("TextBox")
+	UsernameBox.Size = UDim2.new(0.9, 0, 0, 200)
+	UsernameBox.Position = UDim2.new(0.05, 0, 0, 50)
+	UsernameBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	UsernameBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	UsernameBox.Text = "blox77er gui V2 by blox77er"
+	UsernameBox.Font = Enum.Font.Code
+	UsernameBox.TextSize = 22
+	UsernameBox.ClearTextOnFocus = false
+	UsernameBox.MultiLine = true
+	UsernameBox.TextWrapped = true
+	UsernameBox.Parent = MainFrame
+	UsernameBox.ZIndex = 2
+
+	-- Profile picture repositioning
+	RunService.RenderStepped:Connect(function()
+		local tbPos = UsernameBox.Position
+		local tbSize = UsernameBox.Size
+		local picSize = ProfilePic.Size
+		ProfilePic.Position = UDim2.new(
+			tbPos.X.Scale + tbSize.X.Scale - picSize.X.Scale - 0.05,
+			tbPos.X.Offset + tbSize.X.Offset - picSize.X.Offset - 10,
+			tbPos.Y.Scale,
+			tbPos.Y.Offset - picSize.Y.Offset + 25
+		)
+	end)
+
+	-- Always show Blox77ers profile picture
+	local thumbType = Enum.ThumbnailType.HeadShot
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	local success, url = pcall(function()
+		local userId = Players:GetUserIdFromNameAsync("blox77erkidd_ALT")
+		return Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	end)
+
+	if success then
+		ProfilePic.Image = url
+	else
+		ProfilePic.Image = "rbxassetid://0"
+	end
+
+	-- Button styling helper
+	local function styleButton(button)
+		button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		button.BorderColor3 = Color3.fromRGB(255, 0, 0)
+		button.BorderSizePixel = 2
+		button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	end
+
+	-- AutoFill functionality (WITH CLICK SOUND)
+AutoFillBtn.MouseButton1Click:Connect(function()
+	playClickSound(AutoFillBtn)
+
+	local input = UsernameBox.Text
+	for _, plr in pairs(Players:GetPlayers()) do
+		if plr.Name:lower():sub(1, #input) == input:lower() then
+			UsernameBox.Text = plr.Name
+			break
+		end
+	end
+end)
+
+	-- Button actions
+	local bottomButtons = {
+		{
+			Name = "Execute",
+			Action = function()
+				local code = UsernameBox.Text
+				local backdoors = scanForBackdoors()
+				if #backdoors > 0 then
+					for _, backdoor in ipairs(backdoors) do
+						sendNotification("Blox77er EXECUTOR V2", "Attempting to use: " .. backdoor.Name, 5)
+						local success, err = pcall(function()
+							if backdoor:IsA("RemoteEvent") then
+								backdoor:FireServer(code)
+							elseif backdoor:IsA("RemoteFunction") then
+								backdoor:InvokeServer(code)
+							end
+						end)
+						if not success then
+							warn("Error using " .. backdoor.Name .. ": " .. err)
+							sendNotification("Blox77er Executor", "Error: " .. err, 5)
+						else
+							sendNotification("Blox77er Executor", "Executed on " .. backdoor.Name, 5)
+						end
+					end
+				else
+					sendNotification("Blox77er V2 Executor", "No RemoteEvents or RemoteFunctions found", 5)
+				end
+			end
+		},
+		{
+			Name = "Clear",
+			Action = function()
+				UsernameBox.Text = ""
+			end
+		},
+		{
+			Name = "Reset Character",
+			Action = function()
+				if LocalPlayer.Character then
+					LocalPlayer.Character:BreakJoints()
+				end
+			end
+		},
+		{
+			Name = "Body Type Switch",
+			Action = function()
+				isR15 = not isR15
+				local targetBodyType = isR15 and "R15" or "R6"
+				local command = "setBodyType " .. targetBodyType
+				local backdoors = scanForBackdoors()
+				if #backdoors > 0 then
+					for _, backdoor in ipairs(backdoors) do
+						sendNotification("Blox77er V2", "Switching to " .. targetBodyType .. " via: " .. backdoor.Name, 5)
+						pcall(function()
+							if backdoor:IsA("RemoteEvent") then
+								backdoor:FireServer(command)
+							elseif backdoor:IsA("RemoteFunction") then
+								backdoor:InvokeServer(command)
+							end
+						end)
+					end
+				else
+					sendNotification("Blox77er V2", "No RemoteEvents or RemoteFunctions found for body type switch", 5)
+				end
+			end
+		}
+	}
+
+	-- Create bottom buttons
+	local buttonWidth = 110
+	local buttonHeight = 36
+	local spacing = 8
+	local startX = 10
+	local bottomY = MainFrame.AbsoluteSize.Y - buttonHeight - 10
+
+	for i, info in ipairs(bottomButtons) do
+		local btn = Instance.new("TextButton")
+		btn.Size = UDim2.new(0, buttonWidth, 0, buttonHeight)
+		btn.Position = UDim2.new(0, startX + (i - 1) * (buttonWidth + spacing), 0, bottomY)
+		btn.Text = info.Name
+		btn.Font = Enum.Font.GothamBold
+		btn.TextSize = 18
+		btn.TextWrapped = true
+		btn.Parent = MainFrame
+		styleButton(btn)
+		btn.MouseButton1Click:Connect(function()
+	playClickSound(btn)
+	info.Action(btn)
+end)
+		btn.ZIndex = 3
+	end
+end
+
+-- Load GUI
+loadMainGui()
+-- Toggle Button (Open / Close)
+local ToggleGui = Instance.new("ScreenGui")
+ToggleGui.Name = "CO0LKIDD_Toggle"
+ToggleGui.Parent = PlayerGui
+ToggleGui.ResetOnSpawn = false
+
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Size = UDim2.new(0, 80, 0, 30)
+ToggleButton.Position = UDim2.new(1, -90, 0, 10) -- top-right
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ToggleButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+ToggleButton.BorderSizePixel = 2
+ToggleButton.Text = "CLOSE"
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextSize = 14
+ToggleButton.Parent = ToggleGui
+
+-- TOGGLE BUTTON
+local ToggleGui = Instance.new("ScreenGui")
+ToggleGui.Name = "Blox77er_Toggle"
+ToggleGui.Parent = PlayerGui
+ToggleGui.ResetOnSpawn = false
+
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Size = UDim2.new(0,80,0,30)
+ToggleButton.Position = UDim2.new(1,-90,0,10)
+ToggleButton.Text = "CLOSE"
+ToggleButton.BackgroundColor3 = Color3.new(0,0,0)
+ToggleButton.BorderColor3 = Color3.fromRGB(255,0,0)
+ToggleButton.BorderSizePixel = 2
+	ToggleButton.TextColor3 = Color3.new(1,1,1)
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextSize = 14
+ToggleButton.Parent = ToggleGui
+
+local toggleSound = Instance.new("Sound", ToggleButton)
+toggleSound.SoundId = "rbxassetid://7593297942"
+toggleSound.Volume = 1
+
+local open = true
+ToggleButton.MouseButton1Click:Connect(function()
+	toggleSound:Play()
+	open = not open
+	if PlayerGui:FindFirstChild("Blox77erV2") then
+		PlayerGui.Blox77erV2.Enabled = open
+	end
+	ToggleButton.Text = open and "CLOSE" or "OPEN"
+end)
