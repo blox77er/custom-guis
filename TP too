@@ -1,0 +1,38 @@
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local StarterGui = game:GetService("StarterGui")
+
+local TPtool = Instance.new("Tool")
+TPtool.Name = "Tp tool"
+TPtool.RequiresHandle = false
+TPtool.Parent = player:WaitForChild("Backpack")
+
+TPtool.Activated:Connect(function()
+    local character = player.Character
+    if not character then return end
+
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return end
+
+    if mouse.Hit then
+        -- Teleport slightly above where you clicked
+        hrp.CFrame = CFrame.new(mouse.Hit.Position + Vector3.new(0, 3, 0))
+    end
+end)
+
+-- give back tool on respawn
+player.CharacterAdded:Connect(function()
+    task.wait(1)
+    if not player.Backpack:FindFirstChild(tool.Name) then
+        local newTool = TPtool:Clone()
+        newTool.Parent = player.Backpack
+    end
+end)
+
+StarterGui:SetCore("SendNotification", {
+    Title = "Thx 4 executing",
+    Text = "made by blox77er on discord",
+    Duration = 4
+})
+
+-- made by blox77er, dont remove you skids
