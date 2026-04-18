@@ -1,0 +1,175 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
+
+designed using localmaze gui creator
+]=]
+
+local LMG2L = {};
+
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+LMG2L["ScreenGui_1"].ResetOnSpawn = false
+
+LMG2L["Frame_2"] = Instance.new("Frame", LMG2L["ScreenGui_1"]);
+LMG2L["Frame_2"]["BorderSizePixel"] = 7;
+LMG2L["Frame_2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Frame_2"]["Size"] = UDim2.new(0, 516, 0, 364);
+LMG2L["Frame_2"]["Position"] = UDim2.new(0, 98, 0, 112);
+LMG2L["Frame_2"]["BorderColor3"] = Color3.fromRGB(188, 11, 11);
+LMG2L["Frame_2"]["BackgroundTransparency"] = 0.3;
+
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	LMG2L["Frame_2"].Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+LMG2L["Frame_2"].InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = LMG2L["Frame_2"].Position
+		
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+LMG2L["Frame_2"].InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
+
+LMG2L["Clear_3"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["Clear_3"]["TextWrapped"] = true;
+LMG2L["Clear_3"]["BorderSizePixel"] = 2;
+LMG2L["Clear_3"]["TextScaled"] = true;
+LMG2L["Clear_3"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Clear_3"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Clear_3"]["BorderMode"] = Enum.BorderMode.Inset;
+LMG2L["Clear_3"]["Size"] = UDim2.new(0, 104, 0, 76);
+LMG2L["Clear_3"]["BorderColor3"] = Color3.fromRGB(255, 254, 252);
+LMG2L["Clear_3"]["Text"] = [[Clear]];
+LMG2L["Clear_3"]["Name"] = [[Clear]];
+LMG2L["Clear_3"]["Position"] = UDim2.new(0, 118, 0, 284);
+LMG2L["Clear_3"].MouseButton1Click:Connect(function()
+    LMG2L["Scriptbox_4"].Text = ""
+end)
+
+LMG2L["Scriptbox_4"] = Instance.new("TextBox", LMG2L["Frame_2"]);
+LMG2L["Scriptbox_4"]["Name"] = [[Scriptbox]];
+LMG2L["Scriptbox_4"]["BorderSizePixel"] = 4;
+LMG2L["Scriptbox_4"]["TextWrapped"] = true;
+LMG2L["Scriptbox_4"]["TextSize"] = 16;
+LMG2L["Scriptbox_4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Scriptbox_4"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Scriptbox_4"]["FontFace"] = Font.new([[rbxasset://fonts/families/ComicNeueAngular.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+LMG2L["Scriptbox_4"]["MultiLine"] = true;
+LMG2L["Scriptbox_4"]["PlaceholderText"] = [[w0ahza!]];
+LMG2L["Scriptbox_4"]["Size"] = UDim2.new(0, 392, 0, 178);
+LMG2L["Scriptbox_4"]["Position"] = UDim2.new(0, 10, 0, 94);
+LMG2L["Scriptbox_4"]["BorderColor3"] = Color3.fromRGB(255, 255, 252);
+LMG2L["Scriptbox_4"]["Text"] = [[blox77er edit0r v1.0 made by blox77er on discord]];
+
+
+LMG2L["name_5"] = Instance.new("TextLabel", LMG2L["Frame_2"]);
+LMG2L["name_5"]["TextWrapped"] = true;
+LMG2L["name_5"]["BorderSizePixel"] = 4;
+LMG2L["name_5"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+LMG2L["name_5"]["TextScaled"] = true;
+LMG2L["name_5"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["name_5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+LMG2L["name_5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["name_5"]["Size"] = UDim2.new(0, 384, 0, 70);
+LMG2L["name_5"]["BorderColor3"] = Color3.fromRGB(255, 17, 17);
+LMG2L["name_5"]["Text"] = [[BLX Edit0r v1.0]];
+LMG2L["name_5"]["Name"] = [[name]];
+LMG2L["name_5"]["Position"] = UDim2.new(0, 12, 0, 10);
+
+
+LMG2L["Exe_6"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["Exe_6"]["TextWrapped"] = true;
+LMG2L["Exe_6"]["BorderSizePixel"] = 2;
+LMG2L["Exe_6"]["TextScaled"] = true;
+LMG2L["Exe_6"]["TextColor3"] = Color3.fromRGB(255, 14, 14);
+LMG2L["Exe_6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Exe_6"]["BorderMode"] = Enum.BorderMode.Inset;
+LMG2L["Exe_6"]["Size"] = UDim2.new(0, 104, 0, 76);
+LMG2L["Exe_6"]["BorderColor3"] = Color3.fromRGB(255, 254, 252);
+LMG2L["Exe_6"]["Text"] = [[Run]];
+LMG2L["Exe_6"]["Name"] = [[Exe]];
+LMG2L["Exe_6"]["Position"] = UDim2.new(0, 6, 0, 284);
+LMG2L["Exe_6"].MouseButton1Click:Connect(function()
+      local success = pcall(loadstring(LMG2L["Scriptbox_4"].Text))
+    
+    if success then
+        print("hey jane! your early! (executed code)")
+    else
+        print("your life's script is dirtied by the code, who adore you (unsuccessful code execution attempt lolz)")
+    end
+end)
+
+LMG2L["InfYield_7"] = Instance.new("TextButton", LMG2L["Frame_2"]);
+LMG2L["InfYield_7"]["TextWrapped"] = true;
+LMG2L["InfYield_7"]["BorderSizePixel"] = 2;
+LMG2L["InfYield_7"]["TextScaled"] = true;
+LMG2L["InfYield_7"]["TextColor3"] = Color3.fromRGB(255, 203, 10);
+LMG2L["InfYield_7"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["InfYield_7"]["BorderMode"] = Enum.BorderMode.Inset;
+LMG2L["InfYield_7"]["Size"] = UDim2.new(0, 104, 0, 76);
+LMG2L["InfYield_7"]["BorderColor3"] = Color3.fromRGB(255, 254, 252);
+LMG2L["InfYield_7"]["Text"] = [[ADMIN]];
+LMG2L["InfYield_7"]["Name"] = [[InfYield]];
+LMG2L["InfYield_7"]["Position"] = UDim2.new(0, 234, 0, 284);
+LMG2L["InfYield_7"].MouseButton1Click:Connect(function()
+    local function infYield()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+    
+    infYield()
+end)
+
+LMG2L["Hide_8"] = Instance.new("TextButton", LMG2L["ScreenGui_1"]);
+LMG2L["Hide_8"]["TextWrapped"] = true;
+LMG2L["Hide_8"]["BorderSizePixel"] = 5;
+LMG2L["Hide_8"]["TextScaled"] = true;
+LMG2L["Hide_8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+LMG2L["Hide_8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0);
+LMG2L["Hide_8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+LMG2L["Hide_8"]["Size"] = UDim2.new(0, 98, 0, 58);
+LMG2L["Hide_8"]["BorderColor3"] = Color3.fromRGB(255, 0, 0);
+LMG2L["Hide_8"]["Text"] = [[CLOSE]];
+LMG2L["Hide_8"]["Name"] = [[Hide]];
+LMG2L["Hide_8"]["Position"] = UDim2.new(0, 908, 0, -42);
+LMG2L["Hide_8"].MouseButton1Click:Connect(function()
+    if LMG2L["Frame_2"].Visible == true then
+        LMG2L["Frame_2"].Visible = false
+        LMG2L["Hide_8"].Text = "OPEN"
+    else
+        LMG2L["Frame_2"].Visible = true
+        LMG2L["Hide_8"].Text = "CLOSE"
+    end
+end)
+
+return LMG2L["ScreenGui_1"], require;
